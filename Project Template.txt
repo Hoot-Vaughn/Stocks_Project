@@ -1,8 +1,0 @@
-﻿
-
-
-
-
-The purpose of this project is to explore different machine learning methods, both unsupervised and supervised. We have chosen a dataset containing worldwide stock market results. Since the dataset offers both continuous and categorical data types, we anticipate the dataset will allow for flexibility in testing both unsupervised and supervised learning methods. Although the primary purpose of this project is to learn and utilize different machine learning techniques, we feel this particular data set also gives our team in sights into one fo the largest factors effecting the global economy, the stock market. 
-
-

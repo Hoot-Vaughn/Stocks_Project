@@ -10,15 +10,19 @@ import pacmap
 
 
 
-def graphPCA(X,n,y):
+def graphPCA(X,n,Y):
 
     pca = PCA(n_components=n)  # Reduce to 2D
     X_pca = pca.fit_transform(X)
 
+
     # Plot
     plt.figure(figsize=(8,6))
-    sns.scatterplot(x=X_pca[:, 0], y=X_pca[:, 1], hue=y, palette="tab10")
+    ax=sns.scatterplot(x=X_pca[:, 0], y=X_pca[:, 1], hue=Y.ravel(), palette="tab10")
+    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
+
     plt.title("PCA Projection")
+    plt.tight_layout()
     plt.show()
 
 
@@ -28,8 +32,12 @@ def graphtSNE(X,z):
 
     # Plot
     plt.figure(figsize=(8,6))
-    sns.scatterplot(x=X_tsne[:, 0], y=X_tsne[:, 1], hue=z, palette="tab10")
+    ax=sns.scatterplot(x=X_tsne[:, 0], y=X_tsne[:, 1], hue=z.ravel(), palette="tab10")
+    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
+    
+    
     plt.title("t-SNE Projection")
+    plt.tight_layout()
     plt.show()
 
 def graphUMAP(X,z):
@@ -38,7 +46,8 @@ def graphUMAP(X,z):
 
     # Plot
     plt.figure(figsize=(8,6))
-    sns.scatterplot(x=X_umap[:, 0], y=X_umap[:, 1], hue=z, palette="tab10")
+    ax=sns.scatterplot(x=X_umap[:, 0], y=X_umap[:, 1], hue=z.ravel(), palette="tab10")
+    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
     plt.title("UMAP Projection")
     plt.show()
 
@@ -49,6 +58,7 @@ def graphPaCMAP(X,z):
 
     # Plot
     plt.figure(figsize=(8,6))
-    sns.scatterplot(x=X_pacmap[:, 0], y=X_pacmap[:, 1], hue=z, palette="tab10")
+    ax=sns.scatterplot(x=X_pacmap[:, 0], y=X_pacmap[:, 1], hue=z.ravel(), palette="tab10")
+    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
     plt.title("PaCMAP Projection")
     plt.show()

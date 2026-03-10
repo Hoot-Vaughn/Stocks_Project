@@ -7,6 +7,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 import umap
 import pacmap
+import trimap
 
 
 
@@ -24,6 +25,20 @@ def graphPCA(X,n,Y):
     plt.title("PCA Projection")
     plt.tight_layout()
     plt.show()
+
+def graphTriMAP(X,z):    
+    trimapM = trimap.TRIMAP()
+    model = trimapM.fit_transform(X)
+
+    plt.figure(figsize=(8,6))
+    ax=sns.scatterplot(x=model[:, 0], y=model[:, 1], hue=z.ravel(), palette="tab10")
+    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
+    
+    
+    plt.title("triMAP Projection")
+    plt.tight_layout()
+    plt.show()
+
 
 
 def graphtSNE(X,z):

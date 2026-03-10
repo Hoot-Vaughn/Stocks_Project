@@ -1,0 +1,5 @@
+git reflog
+
+git add .
+git commit -m "custom message"
+git push -u origin <branch>

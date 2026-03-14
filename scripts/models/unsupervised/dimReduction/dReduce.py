@@ -9,6 +9,9 @@ import umap
 import pacmap
 import trimap
 
+from sklearn.cluster import AgglomerativeClustering
+
+
 
 
 def graphPCA(X,n,Y):
@@ -20,15 +23,23 @@ def graphPCA(X,n,Y):
     # Plot
     plt.figure(figsize=(8,6))
     ax=sns.scatterplot(x=X_pca[:, 0], y=X_pca[:, 1], hue=Y.ravel(), palette="tab10")
-    sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
+    sns.move_legend(ax, "upper right", fontsize=7, markerscale=0.5)
+
+    X_pca1=X_pca[:, 0]
+    X_pca2=X_pca[:, 1]
 
     plt.title("PCA Projection")
     plt.tight_layout()
     plt.show()
+    print(X_pca)
+    print(X_pca1)
+    print(X_pca2)
+
+    return X_pca
 
 def graphTriMAP(X,z):    
     trimapM = trimap.TRIMAP()
-    model = trimapM.fit_transform(X)
+    model = trimapM.fit_transform(X) 
 
     plt.figure(figsize=(8,6))
     ax=sns.scatterplot(x=model[:, 0], y=model[:, 1], hue=z.ravel(), palette="tab10")
@@ -77,3 +88,4 @@ def graphPaCMAP(X,z):
     sns.move_legend(ax, "upper right", fontsize=4, markerscale=0.35)
     plt.title("PaCMAP Projection")
     plt.show()
+
